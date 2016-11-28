@@ -46,3 +46,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'passenger', '~> 4.0', '>= 4.0.48'
