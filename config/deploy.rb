@@ -40,6 +40,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
 
 set :migration_role, :app
+set :whenever_roles, :batch
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
