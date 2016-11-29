@@ -54,7 +54,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.11.1)
-    daemon_controller (1.2.0)
     erubis (2.7.0)
     execjs (2.7.0)
     hike (1.2.3)
@@ -77,10 +76,6 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
-    passenger (4.0.60)
-      daemon_controller (>= 1.2.0)
-      rack
-      rake (>= 0.8.1)
     polyglot (0.3.5)
     rack (1.5.5)
     rack-test (0.6.3)
@@ -154,7 +149,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.3.20)
-  passenger (~> 4.0, >= 4.0.48)
   rails (= 4.1.4)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
