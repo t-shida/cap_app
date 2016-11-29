@@ -37,4 +37,4 @@ set :linked_dirs, %w{bin log tmp}
 set :keep_releases, 3
 
 set :rbenv_type, :user
-set :rbenv_ruby, '2.3.1'
+set :rbenv_ruby, '2.1.2'
