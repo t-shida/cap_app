@@ -21,5 +21,5 @@ set :output, 'log/cron.log'
 # Learn more: http://github.com/javan/whenever
 
 every 1.hours do
-  command "echo 'test whenever'"
+  rake 'tmp:cache:clear'
 end
