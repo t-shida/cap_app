@@ -39,6 +39,8 @@ set :keep_releases, 3
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
 
+set :migration_role, :app
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   desc 'Restart Application'
