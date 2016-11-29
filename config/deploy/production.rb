@@ -1,5 +1,7 @@
 set :deploy_to, '/home/homepage/www/capistranos/production/cap_app'
 set :rails_env, 'production'
+
+role :app, 'homepage@localhost'
 #
 # server-based syntax
 # ======================
@@ -9,7 +11,7 @@ set :rails_env, 'production'
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
-server 'localhost', user: 'homepage', roles: %w{web app db}
+# server 'localhost', user: 'homepage', roles: %w{app}
 
 
 # role-based syntax
@@ -65,4 +67,4 @@ set :ssh_options, {
 #     # password: 'please use keys'
 #   }
 
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }

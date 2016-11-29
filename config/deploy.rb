@@ -38,3 +38,13 @@ set :keep_releases, 3
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
+
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  desc 'Restart Application'
+  task :restart do
+    on roles(:app) do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
+end

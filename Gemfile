@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
-  gem 'capistrano-passenger'
+  # gem 'capistrano-passenger'
 end
 
 # Use debugger
