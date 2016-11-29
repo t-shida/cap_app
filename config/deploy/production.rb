@@ -64,3 +64,5 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
