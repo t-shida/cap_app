@@ -48,3 +48,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'whenever', require: false
+
+gem 'aws-sdk'
+gem 'fake_sqs'
+gem 'shoryuken'

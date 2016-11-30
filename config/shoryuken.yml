@@ -1,0 +1,9 @@
+aws:
+  access_key_id: 'access key id'
+  secret_access_key: 'secret access key'
+  region: 'region'
+  sqs_endpoint: 'http://localhost:4568'
+concurrency: 25
+delay: 25
+queues:
+  - 'default'
