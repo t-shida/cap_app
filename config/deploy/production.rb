@@ -1,8 +1,10 @@
 set :deploy_to, '/home/homepage/www/capistranos/production/cap_app'
+set :stage, 'production'
 set :rails_env, 'production'
 
-role :app, 'homepage@localhost'
-role :batch, 'homepage@localhost'
+# role :app, 'homepage@localhost'
+# role :batch, 'homepage@localhost'
+role :job, 'homepage@localhost'
 
 # server-based syntax
 # ======================

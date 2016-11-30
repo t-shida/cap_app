@@ -38,16 +38,31 @@ set :keep_releases, 3
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.2'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all
 
 set :migration_role, :app
 set :whenever_roles, :batch
+set :whenever_identifier, ->{"#{fetch(:application)}_#{fetch(:stage)}"}
+# set :shoryuken_role, :job
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   desc 'Restart Application'
   task :restart do
     on roles(:app) do
+      # passenger
       execute :touch, release_path.join('tmp/restart.txt')
+    end
+    on roles(:job) do
+      # shoryuken
+      execute %(ps ax | grep shoryuken | grep -v grep | awk '{print "kill -USR1",$1}' | sh)
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :bundle, :exec, :shoryuken, "-d -R -C config/shoryuken.yml -L ./log/#{fetch(:rails_env)}.log"
+        end
+      end
     end
   end
 end
