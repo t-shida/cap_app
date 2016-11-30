@@ -1,6 +1,6 @@
 set :deploy_to, '/home/homepage/www/capistranos/production/cap_app'
 set :stage, 'production'
-set :rails_env, 'production'
+set :rails_env, fetch(:stage)
 
 # role :app, 'homepage@localhost'
 # role :batch, 'homepage@localhost'
@@ -53,9 +53,7 @@ role :job, 'homepage@localhost'
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-set :ssh_options, {
-  keys: [File.expand_path('~/.ssh/id_rsa')]
-}
+#
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
@@ -70,4 +68,3 @@ set :ssh_options, {
 #     # password: 'please use keys'
 #   }
 
-# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
