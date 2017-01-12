@@ -47,8 +47,10 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
 
 set :migration_role, :app
-set :whenever_roles, :batch
+
+# set :whenever_environment, :production
 set :whenever_identifier, ->{"#{fetch(:application)}_#{fetch(:stage)}"}
+set :whenever_roles, :job
 # set :shoryuken_role, :job
 
 after 'deploy:publishing', 'deploy:restart'

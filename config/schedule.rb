@@ -19,7 +19,11 @@ set :output, 'log/cron.log'
 # end
 
 # Learn more: http://github.com/javan/whenever
+#
+every 1.hours, roles: :batch do
+  command 'echo batch.'
+end
 
-every 1.hours do
+every 1.hours, roles: :job do
   rake 'tmp:cache:clear'
 end
