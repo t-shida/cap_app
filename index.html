@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nil.in.net</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        // background-color: #000;
+      }
+      .main {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        opacity: 0;
+      }
+      .main p {
+        font-size: 90%;
+        margin-top: 10px;
+        // color: #fff;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+        set_position();
+      });
+      function set_position() {
+        var window_height = $(window).outerHeight();
+        if($('.main img').height() >= window_height / 2) {
+           $('.main img').height(window_height / 2);
+        }
+        $('.main').css('margin-top', `${(window_height - $('.main').height()) / 2}px`)
+        $('.main').css('opacity', '1')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <img src="<%= image %>">
+      <p><%= word %></p>
+    </div>
+  </body>
+</html>
