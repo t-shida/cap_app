@@ -14,6 +14,7 @@ session = CGI::Session.new(cgi)
 
 words = File.open(words_file_path).readlines.map &:chomp
 used_words = session['words'].nil? ? [] : session['words']
+used_words.uniq!
 word = nil
 unused_words = words - used_words
 if unused_words.empty?
@@ -26,6 +27,7 @@ end
 
 images = Dir.glob(images_dir_path.join('*.jpg'))
 used_images = session['images'].nil? ? [] : session['images']
+used_images.uniq!
 image = nil
 unused_images = images - used_images
 if unused_images.empty?
@@ -50,5 +52,4 @@ template.gsub!(/<%= word %>/, word)
 # puts images.inspect
 # puts image
 puts template
-# puts session['words']
 # puts session['images']
