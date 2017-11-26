@@ -1,1 +1,0 @@
-sudo vi /var/log/httpd/nil.in.net-error_log
